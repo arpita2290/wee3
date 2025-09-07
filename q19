@@ -1,0 +1,14 @@
+// Q19: isLowerTriangular function
+#include <stdio.h>
+int isLowerTriangular(int a[][100],int n){
+    for(int i=0;i<n-1;i++) for(int j=i+1;j<n;j++) if(a[i][j]) return 0;
+    return 1;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    int a[100][100];
+    for(int i=0;i<n;i++) for(int j=0;j<n;j++) scanf("%d",&a[i][j]);
+    printf(isLowerTriangular(a,n)?"Lower":"Not Lower");
+    return 0;
+}
