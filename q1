@@ -1,0 +1,34 @@
+// Q1: Average marks for 20 students in 5 subjects, averages, below-50s, and display marks.
+#include <stdio.h>
+int main() {
+    int MARKS[20][5];
+    int i, j, sum, countBelow50 = 0;
+    float avgStudent[20], avgSubject[5];
+    printf("Enter marks (20x5):\n");
+    for (i=0; i<20; i++)
+        for (j=0; j<5; j++)
+            scanf("%d", &MARKS[i][j]);
+    for (j=0; j<5; j++) {
+        sum=0;
+        for (i=0; i<20; i++) sum += MARKS[i][j];
+        avgSubject[j] = (float)sum/20;
+    }
+    printf("Average in each subject: ");
+    for (j=0; j<5; j++) printf("%.2f ", avgSubject[j]);
+    printf("\n");
+    for (i=0; i<20; i++) {
+        sum=0;
+        for (j=0; j<5; j++) sum += MARKS[i][j];
+        avgStudent[i] = (float)sum/5;
+        if (avgStudent[i]<50) countBelow50++;
+    }
+    printf("Average per student: ");
+    for (i=0;i<20;i++) printf("%.2f ", avgStudent[i]);
+    printf("\nStudents below 50 avg: %d\n", countBelow50);
+    printf("Scores:\n");
+    for (i=0;i<20;i++){
+        for (j=0;j<5;j++) printf("%d ", MARKS[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
