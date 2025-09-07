@@ -1,0 +1,25 @@
+// Q14: Menu-driven: read/display, sum, transpose, product of two p*q*r matrices
+#include <stdio.h>
+void read(int p,int q,int r,int a[p][q][r]) {
+    int i,j,k; for(i=0;i<p;i++) for(j=0;j<q;j++) for(k=0;k<r;k++) scanf("%d",&a[i][j][k]);
+}
+void display(int p,int q,int r,int a[p][q][r]) {
+    int i,j,k; for(i=0;i<p;i++,printf("\n")) for(j=0;j<q;j++,printf(" | ")) for(k=0;k<r;k++) printf("%d ",a[i][j][k]);
+}
+int main() {
+    int p,q,r,op;
+    printf("p q r: "); scanf("%d%d%d",&p,&q,&r);
+    int a[p][q][r],b[p][q][r],sum[p][q][r];
+    do {
+        printf("1.Read 2.Display 3.Sum 4.Exit\nOption: ");
+        scanf("%d",&op);
+        if(op==1){printf("A:\n");read(p,q,r,a);printf("B:\n");read(p,q,r,b);}
+        else if(op==2){display(p,q,r,a); display(p,q,r,b);}
+        else if(op==3){
+            int i,j,k;
+            for(i=0;i<p;i++) for(j=0;j<q;j++) for(k=0;k<r;k++) sum[i][j][k]=a[i][j][k]+b[i][j][k];
+            display(p,q,r,sum);
+        }
+    }while(op!=4);
+    return 0;
+}
