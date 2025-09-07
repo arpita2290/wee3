@@ -1,0 +1,19 @@
+// Q13: Interchange second biggest and second smallest number using pointers
+#include <stdio.h>
+int main() {
+    int n,i,max1,max2,min1,min2,*b=NULL,*s=NULL,arr[100];
+    scanf("%d",&n);
+    for(i=0;i<n;i++) scanf("%d",&arr[i]);
+    max1=max2=arr[0]; min1=min2=arr[0];
+    for(i=1;i<n;i++) {
+        if(arr[i]>max1) max1=arr[i];
+        if(arr[i]<min1) min1=arr[i];
+    }
+    for(i=0;i<n;i++) {
+        if(arr[i]>min1 && (!b||arr[i]>max2)) { max2=arr[i]; b=&arr[i]; }
+        if(arr[i]<max1 && (!s||arr[i]<min2)) { min2=arr[i]; s=&arr[i]; }
+    }
+    if(b && s) {int t=*b;*b=*s;*s=t;}
+    for(i=0;i<n;i++) printf("%d ",arr[i]);
+    return 0;
+}
