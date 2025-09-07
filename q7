@@ -1,0 +1,12 @@
+// Q7: Sum of diagonal elements using pointers
+#include <stdio.h>
+int main() {
+    int n,i,sum=0;
+    printf("Order: ");
+    scanf("%d",&n);
+    int a[n][n];
+    for(i=0;i<n*n;i++) scanf("%d",(*(a)+(i/n)+i));
+    for(i=0;i<n;i++) sum+=*(*(a+i)+i);
+    printf("Sum of main diagonal: %d",sum);
+    return 0;
+}
