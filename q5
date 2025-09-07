@@ -1,0 +1,12 @@
+// Q5: Sum and mean of elements (2D array)
+#include <stdio.h>
+int main() {
+    int r, c, i,j,sum=0;
+    printf("Rows and cols: ");
+    scanf("%d %d",&r,&c);
+    int A[r][c];
+    for(i=0;i<r;i++) for(j=0;j<c;j++) scanf("%d",&A[i][j]);
+    for(i=0;i<r;i++) for(j=0;j<c;j++) sum+=A[i][j];
+    printf("Sum: %d\nMean: %.2f\n", sum, ((float)sum/(r*c)));
+    return 0;
+}
