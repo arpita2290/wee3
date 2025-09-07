@@ -1,0 +1,11 @@
+// Q21: find average of array using pointers
+#include <stdio.h>
+int main(){
+    int n; float sum=0;
+    scanf("%d",&n);
+    int a[n],*p;
+    for(p=a;p<a+n;p++) scanf("%d",p);
+    for(p=a;p<a+n;p++) sum+=*p;
+    printf("Avg: %.2f",sum/n);
+    return 0;
+}
